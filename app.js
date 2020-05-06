@@ -32,10 +32,9 @@ app.use('/users', usersRouter);
 
 
 mongoose.Promise = Promise;
-
 const run = async() => {
   
-    await mongoose.connect('mongodb+srv://huyho0202:huy123@cluster0-xv9uk.mongodb.net/test?retryWrites=true&w=majority', {
+    await mongoose.connect('mongodb+srv://huyho:123@cluster0-xv9uk.mongodb.net/Server', {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })

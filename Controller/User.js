@@ -15,6 +15,7 @@ exports.loginUser = (req, res, next) => {
             userModel.getUser(user.username, user.password).then(user => {
             const token = jwt.sign({ id: user.username }, 'your_jwt_secret');
             res.status(200).send({
+              returncode :  1,
               auth: true,
               token: token,
               message: 'user found & logged in',
@@ -40,7 +41,7 @@ exports.loginUser = (req, res, next) => {
         }
         userModel.saveUser(data).then(() => {
           console.log('user created in db');
-          res.status(200).send({ message: 'user created' });
+          res.status(200).send({ returncode :  1 ,message: 'user created' });
         })
   
   }
@@ -67,7 +68,9 @@ exports.loginUser = (req, res, next) => {
         res.send(info.message);
       } else {
         console.log('user found in db from route');
-        res.status(200).json({user:{
+        res.status(200).json({
+          returncode: 1,
+          user:{
           username: user.username,
           firstName: user.firstName,
           lastName: user.lastName,
