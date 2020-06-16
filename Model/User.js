@@ -19,7 +19,7 @@ const user = new Schema(
   const list = mongoose.model(USERS, user);
 
   const getUser = async (username) => {
-    return await list.findOne({ 'username': username });
+    return await list.finOne({ 'username': username });
   };
 
   const findUserById = async (id) => {
